@@ -10,7 +10,7 @@ phone_number_regex = re.compile(r'^(\+7|8)\d{10}$')
 age_regex = re.compile(r'^\d.*')
 district_regex = re.compile(r'^\D.*')
 data = {}
-request_chat_id = '-4053194896'
+request_chat_id = '-1002088344075'
 
 @bot.message_handler(commands=['start'])
 
