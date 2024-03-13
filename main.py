@@ -20,8 +20,8 @@ def enter_district(message):
     markup = types.InlineKeyboardMarkup()
     itembtn1 = types.InlineKeyboardButton(text='Центр', callback_data='Центр')
     itembtn2 = types.InlineKeyboardButton(text='ВИЗ', callback_data='ВИЗ')
-    itembtn3 = types.InlineKeyboardButton(text='Академический', callback_data='Академический')
-    itembtn4 = types.InlineKeyboardButton(text='Ботаника', callback_data='Ботаника')
+    itembtn3 = types.InlineKeyboardButton(text='Ботаника', callback_data='Ботаника')
+    itembtn4 = types.InlineKeyboardButton(text='Академический', callback_data='Академический')
     
     markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
     bot.send_photo(message.chat.id, open('kiber1.png', 'rb'))
