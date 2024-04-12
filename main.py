@@ -58,7 +58,7 @@ def handle_text(message):
 
 def check_and_send(message):
     if district_regex.match(data[message.chat.id]['district']) and age_regex.match(data[message.chat.id]['age']):
-        bot.send_message(message.chat.id, 'Спасибо! Скоро с Вами свяжется наш менеджер и подберёт подходящую смену для Вашего ребёнка. \n \nДо встречи на летних КИБЕРканикулах!\U0001F60A')
+        bot.send_message(message.chat.id, 'Благодарим! Скоро с Вами свяжется наш менеджер и подберёт самую интересную смену для Вашего ребёнка. \n \nДо встречи на летних КИБЕРканикулах!\U0001F60A')
         bot.send_message(request_chat_id, '\U00002757\U00002757\U00002757 Новый лид\U00002757\U00002757\U00002757'+'\nРайон: ' + data[message.chat.id]['district']+'\nВозраст: '+data[message.chat.id]['age']+'\nТел: '+data[message.chat.id]['phone_number'])
         clear_data(message)
     else:
