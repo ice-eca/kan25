@@ -8,6 +8,7 @@ bot = telebot.TeleBot(TOKEN)
 
 phone_number_regex = re.compile(r'^(\+7|8)\d{10}$')
 age_regex = re.compile(r'^\d.*')
+city_regex = re.compile(r'^\d.*')
 district_regex = re.compile(r'^\D.*')
 data = {}
 request_chat_id = '-4136722281'
@@ -32,6 +33,27 @@ def enter_age(message):
     markup.add(itembtn1, itembtn2)
     bot.send_message(message.chat.id, 'Пожалуйста, укажите возраст вашего ребенка\U0001F447',reply_markup=markup)
 
+def enter_city(message):
+    bot.send_message(message.chat.id, 'город')
+    
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+    if message.text.startswith('/start'):
+        return
+    if message.text.startswith('/getID'):
+        bot.send_message(message.chat.id, message.chat.id)
+        return
+    if message.text.startswith('/'):
+        bot.send_message(message.chat.id, 'Неверная команда')
+        return
+    if phone_number_regex.match(message.text) and data[message.chat.id]['stage'] == 2:
+        data[message.chat.id]['phone_number'] = message.text
+        data[message.chat.id]['stage'] = 3
+        check_and_send(message)
+        return
+    else:
+        bot.send_message(message.chat.id, 'Повторите попытку')
+        return
 
 def enter_phone_number(message):
     bot.send_message(message.chat.id, 'Спасибо! Остался последний шаг\U0001F60A\n \nПожалуйста, введите номер телефона, по которому мы можем с Вами связаться\U0001F4F1')
