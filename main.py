@@ -35,25 +35,8 @@ def enter_age(message):
 
 def enter_city(message):
     bot.send_message(message.chat.id, 'город')
-    
-@bot.message_handler(content_types=['text'])
-def handle_text(message):
-    if message.text.startswith('/start'):
-        return
-    if message.text.startswith('/getID'):
-        bot.send_message(message.chat.id, message.chat.id)
-        return
-    if message.text.startswith('/'):
-        bot.send_message(message.chat.id, 'Неверная команда')
-        return
-    if phone_number_regex.match(message.text) and data[message.chat.id]['stage'] == 2:
-        data[message.chat.id]['phone_number'] = message.text
-        data[message.chat.id]['stage'] = 3
-        check_and_send(message)
-        return
-    else:
-        bot.send_message(message.chat.id, 'Повторите попытку')
-        return
+@bot.message_handler(content_types=['text'])    
+
 
 def enter_phone_number(message):
     bot.send_message(message.chat.id, 'Спасибо! Остался последний шаг\U0001F60A\n \nПожалуйста, введите номер телефона, по которому мы можем с Вами связаться\U0001F4F1')
