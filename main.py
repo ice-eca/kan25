@@ -18,20 +18,19 @@ def enter_district(message):
     clear_data(message)
     data[message.chat.id] = {'stage':0}
     markup = types.InlineKeyboardMarkup()
-    itembtn1 = types.InlineKeyboardButton(text='Центр', callback_data='Центр')
-    itembtn2 = types.InlineKeyboardButton(text='ВИЗ', callback_data='ВИЗ')
-    itembtn3 = types.InlineKeyboardButton(text='Ботаника', callback_data='Ботаника')
-    itembtn4 = types.InlineKeyboardButton(text='Академический', callback_data='Академический')
+    itembtn1 = types.InlineKeyboardButton(text='Голева, 12', callback_data='Голева, 12')
+    itembtn2 = types.InlineKeyboardButton(text='1-я Красноармейская, 3', callback_data='Первая Красноармейская, 3')
     
-    markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
-    bot.send_photo(message.chat.id, open('kiber1.png', 'rb'))
-    bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone Екатеринбург приветствует вас!\U0001F60A\n \nДля летних КИБЕРканикул мы подготовили для Вас 6 уникальных модулей, которые разработали на основе самых актуальных и трендовых тенденций IT-образования\U0001F4BB\n \n\U00002705Minecraft и таинственный портал (8+);\n \n\U00002705Создай свою карту в Roblox Studio (8+);\n \n\U00002705Новый Марио на Construct (8+);\n \n\U00002705Магия нейросетей. Курс искусственного интеллекта в помощь ребенку (8+);\n \n\U00002705Делаем супер-сайты со спецэффектами. Анимация в Figma (11+);\n \n\U00002705Создание интерактивной игры с собственном персонажем на конструкторе ClickTeam Fusion (11+).\n \nВыберите удобный для Вас район\U0001F447' , reply_markup=markup)
+    markup.add(itembtn1, itembtn2)
+    bot.send_photo(message.chat.id, open('kiber1.jpeg', 'rb'))
+    bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone Пермь приветствует вас!\U0001F60A\n \nНа этих выходных мы проводим бесплатный мастер-класс для детей 6-14 лет по искусственному интеллекту!\U0001F4BB\n \n \U00002705 Ребенок познакомиться с магией нейросетей и узнает, как применять искусственный интеллект в деле\n \n\U00002705Создаст своего персонажа в игре Roblox с помощью искусственного интеллекта\n \n\U00002705Длительность мастер-класса - 60 минут. Ничего брать с собой не надо.\n\nТекущий уровень не важен - всему научим.\n Где проходят мастер-классы:\n\n\U0001F4CD Дзержинский р-он, Голева, 12\n\U0001F4CDСвердловский р-он, 1-я Красноармейская,3\n\nВыберите удобный для обучения адрес\U0001F447' ', reply_markup=markup)
     
 def enter_age(message):
     markup = types.InlineKeyboardMarkup()
-    itembtn1 = types.InlineKeyboardButton(text='8-10 лет', callback_data='8-10')
-    itembtn2 = types.InlineKeyboardButton(text='11-14 лет', callback_data='11-14')
-    markup.add(itembtn1, itembtn2)
+    itembtn1 = types.InlineKeyboardButton(text='6-8 лет', callback_data='6-8')
+    itembtn2 = types.InlineKeyboardButton(text='9-11 лет', callback_data='9-11')
+    itembtn3 = types.InlineKeyboardButton(text='12-14 лет', callback_data='12-14')
+    markup.add(itembtn1, itembtn2, itembtn3)
     bot.send_message(message.chat.id, 'Пожалуйста, укажите возраст вашего ребенка\U0001F447',reply_markup=markup)
 
 
@@ -59,8 +58,8 @@ def handle_text(message):
 
 def check_and_send(message):
     if district_regex.match(data[message.chat.id]['district']) and age_regex.match(data[message.chat.id]['age']):
-        bot.send_message(message.chat.id, 'Спасибо! Скоро с Вами свяжется наш менеджер и подберёт подходящую смену для Вашего ребёнка. \n \nДо встречи на летних КИБЕРканикулах!\U0001F60A')
-        bot.send_message(request_chat_id, '\U00002757\U00002757\U00002757 Новый лид\U00002757\U00002757\U00002757'+'\nРайон: ' + data[message.chat.id]['district']+'\nВозраст: '+data[message.chat.id]['age']+'\nТел: '+data[message.chat.id]['phone_number'])
+        bot.send_message(message.chat.id, 'Спасибо! Скоро с вами свяжется наш администратор, отправит вам расписание мастер-классов на ближайшую неделю и согласует точное время\n \nДо встречи на уроке!\U0001F60A')
+        bot.send_message(request_chat_id, 'Адрес ' + data[message.chat.id]['district']+' возраст '+data[message.chat.id]['age']+' '+data[message.chat.id]['phone_number'])
         clear_data(message)
     else:
         bot.send_message(message.chat.id, 'Неправильно сформированы ответы на вопросы, поробуйте еще раз')
