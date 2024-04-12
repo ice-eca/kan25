@@ -33,10 +33,6 @@ def enter_age(message):
     markup.add(itembtn1, itembtn2)
     bot.send_message(message.chat.id, 'Пожалуйста, укажите возраст вашего ребенка\U0001F447',reply_markup=markup)
 
-def enter_city(message):
-    bot.send_message(message.chat.id, 'город')
-@bot.message_handler(content_types=['text'])    
-
 
 def enter_phone_number(message):
     bot.send_message(message.chat.id, 'Спасибо! Остался последний шаг\U0001F60A\n \nПожалуйста, введите номер телефона, по которому мы можем с Вами связаться\U0001F4F1')
