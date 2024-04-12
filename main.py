@@ -22,7 +22,7 @@ def enter_district(message):
     itembtn2 = types.InlineKeyboardButton(text='1-я Красноармейская, 3', callback_data='Первая Красноармейская, 3')
     
     markup.add(itembtn1, itembtn2)
-    bot.send_photo(message.chat.id, open('kiber1.jpeg', 'rb'))
+    bot.send_photo(message.chat.id, open('kiber1.png', 'rb'))
     bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone ',reply_markup=markup)
     
 def enter_age(message):
