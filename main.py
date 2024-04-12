@@ -18,14 +18,12 @@ def enter_district(message):
     clear_data(message)
     data[message.chat.id] = {'stage':0}
     markup = types.InlineKeyboardMarkup()
-    itembtn1 = types.InlineKeyboardButton(text='Центр', callback_data='Центр')
-    itembtn2 = types.InlineKeyboardButton(text='ВИЗ', callback_data='ВИЗ')
-    itembtn3 = types.InlineKeyboardButton(text='Ботаника', callback_data='Ботаника')
-    itembtn4 = types.InlineKeyboardButton(text='Академический', callback_data='Академический')
-    
-    markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
+    itembtn1 = types.InlineKeyboardButton(text='Екатеринбург', callback_data='Екатеринбург')
+    itembtn2 = types.InlineKeyboardButton(text='Другой город', callback_data='Другой город')
+        
+    markup.add(itembtn1, itembtn2)
     bot.send_photo(message.chat.id, open('kiber1.png', 'rb'))
-    bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone Екатеринбург приветствует вас!\U0001F60A\n \nДля летних КИБЕРканикул мы подготовили для Вас 6 уникальных модулей, которые разработали на основе самых актуальных и трендовых тенденций IT-образования\U0001F4BB\n \n\U00002705Minecraft и таинственный портал (8+);\n \n\U00002705Создай свою карту в Roblox Studio (8+);\n \n\U00002705Новый Марио на Construct (8+);\n \n\U00002705Магия нейросетей. Курс искусственного интеллекта в помощь ребенку (8+);\n \n\U00002705Делаем супер-сайты со спецэффектами. Анимация в Figma (11+);\n \n\U00002705Создание интерактивной игры с собственном персонажем на конструкторе ClickTeam Fusion (11+).\n \nВыберите удобный для Вас район\U0001F447' , reply_markup=markup)
+    bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone приветствует вас!' , reply_markup=markup)
     
 def enter_age(message):
     markup = types.InlineKeyboardMarkup()
