@@ -24,7 +24,7 @@ def enter_district(message):
         
     markup.add(itembtn1, itembtn2)
     bot.send_photo(message.chat.id, open('kiber1.png', 'rb'))
-    bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone приветствует вас!' , reply_markup=markup)
+    bot.send_message(message.chat.id, 'Школа программирования для детей KIBERone приветствует вас!\n\nНа летние каникулы мы организуем развлекательно-познавательные смены для детей от 8 до 14 лет.\n5 дней по системе «ВСЁ ВКЛЮЧЕНО» с 6 тематическими сменами на выбор. Входит:\n– обед в ресторане + перекусы\n– разработка собственного IT-проекта (2 часа в день)\n– практика английский языка\n– творчество, VR, командные игры и развлечения\n– правильное окружение и новые друзья\n\nДля бронирования смены укажите Ваш город\U0001F447' , reply_markup=markup)
     
 def enter_age(message):
     markup = types.InlineKeyboardMarkup()
