@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import re
 
-TOKEN = '6546041003:AAEsgIiWyN991C3kl_GJ_tc6BzSA_RK-H-E'
+TOKEN = '7079565713:AAHHKTpUfz-20C8HJUq57x6xT2upEgaZAk4'
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -10,7 +10,7 @@ phone_number_regex = re.compile(r'^(\+7|8)\d{10}$')
 age_regex = re.compile(r'^\d.*')
 district_regex = re.compile(r'^\D.*')
 data = {}
-request_chat_id = '-1002088344075'
+request_chat_id = '-4136722281'
 
 @bot.message_handler(commands=['start'])
 
